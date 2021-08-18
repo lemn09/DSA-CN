@@ -1,26 +1,17 @@
-int length(char input[])
-{
-	int len = 0;
-	for (int i = 0; input[i] != '\0'; i++)
-	{
-		len++;
-	}
-	 return len;
-}
-
-int stringToNumber(char input[], int last)
-{
-	if (last == 0)
-	{
-		return input[last] - '0';
-	}
-	int smallAns = stringToNumber(input, last - 1);
-	int a = input[last] - '0';
-	return smallAns * 10 + a;
-}
-
-int stringToNumber(char input[])
-{
-	int len = length(input);
-	return stringToNumber(input, len - 1);
+// Change in the given string itself. So no need to return or print the changed string.
+#include<cstring>
+using namespace std;
+void pairStar(char input[]) {
+    // Write your code here
+    if(input[0] == '\0') return;
+	if(input[0] == input[1])
+    {
+        for(int i=strlen(input); i>=0; i--)
+            input[i+1]=input[i];
+      //  input[strlen(input) + 1]='\0';
+    	input[1]= '*';
+        //cout<<input<<endl;
+        pairStar(input+2);
+    }
+    pairStar(input+1);
 }
