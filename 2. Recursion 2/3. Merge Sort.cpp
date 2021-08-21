@@ -1,52 +1,53 @@
+// Merge Sort
 #include<iostream>
 using namespace std;
 
-void Merge(int *arr, int si, int ei)
+void _merge(int *arr, int si, int ei)   //it's purpose is to take an array split the array in 2 and then create a new array copy the content of old arrays in sorted way and then paste it in the original array's recieved indices
 {
-    int len= ei-si+1;
+    int len= (ei-si+1);
     int mid= (si+ei)/2;
-    int* narr= new int[len];
-    int i=si,j=mid+1,pos=0;
-    while(i<=mid && j<=ei)
+    int *out= new int[len];
+    int pos=0,i=si,j=mid+1;
+    while(i<= mid  && j<=ei)
     {
-        if(arr[i] < arr[j])
-            narr[pos++]= arr[i++];
+        if(arr[i] <= arr[j])
+            out[pos++]= arr[i++];
         else
-            narr[pos++]= arr[j++];
+            out[pos++]= arr[j++];
     }
-    while(i<=mid)
-        narr[pos++]= arr[i++];
+    while(i<= mid)
+        out[pos++]= arr[i++];
     while(j<=ei)
-        narr[pos++]= arr[j++];
+        out[pos++]= arr[j++];
     pos=0;
     for(int i=si; i<=ei; i++)
-        arr[i]= narr[pos++];
-    delete []narr;
+        arr[i]= out[pos++];
+    delete []out;
 }
 
-void merge_sort(int *arr, int si, int ei)
+void mergesort(int *arr, int si, int ei)    //it's purpose is to split the array in half as long as it's possible
 {
-    if(si >= ei)
-        return;
+    if(si>=ei)  return;
     int mid= (si+ei)/2;
-    merge_sort(arr, si, mid);
-    merge_sort(arr,mid+1,ei);
-    Merge(arr,si,ei);
+    mergesort(arr, si, mid);
+    mergesort(arr, mid+1, ei);
+    _merge(arr,si,ei);
 }
 
 int main()
 {
     int n;
-    cout<<"Enter the size of array: ";
+    cout<<"Enter the size of the array: ";
     cin>>n;
     int *arr= new int[n];
-    cout<<"Enter "<<n<<" elements of the array: ";
+    cout<<"\nEnter the elements of the array: ";
     for(int i=0; i<n; i++)
         cin>>arr[i];
-    merge_sort(arr,0,n-1);
+    mergesort(arr,0,n-1);
     cout<<"\nSorted Array: ";
     for(int i=0; i<n; i++)
         cout<<arr[i]<<' ';
     cout<<endl;
     delete []arr;
+    return 0;
 }
