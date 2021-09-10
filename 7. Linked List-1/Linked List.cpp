@@ -73,6 +73,36 @@ void print(node* const &head){
     cout<<endl;
 }
 
+
+node *mergeTwoSortedLinkedLists(node *head1, node *head2){
+    node *fH=NULL,*fTail=NULL;
+    node *minAdd= (head1->data < head2->data) ? head1 : head2;
+    fH=minAdd;
+    fTail=minAdd;
+    node *temp1= head1->next, *temp2= head2;
+    while(temp1 && temp2){
+        if(temp1->data < temp2->data){
+            fTail->next= temp1;
+            fTail=fTail->next;
+            temp1=temp1->next;
+        }else{
+            fTail->next= temp2;
+            fTail= fTail->next;
+            temp2=temp2->next;
+        }
+    }
+
+    while(temp1){
+        fTail->next= head1;
+    }
+    while(temp2){
+        fTail->next= head2;
+    }
+    return fH;
+}
+
+
+
 int main(){
     int choice=1,data;
     node *head=NULL;
@@ -95,5 +125,29 @@ int main(){
     }
     print(head);
    // printNode(head);
-    Size(head);
+   // Size(head);
+   node *head2= NULL;
+   choice=1;
+   cout<<"\nSecond Head\n";
+   while(choice!=3){
+        cout<<"1.Insert At Tail \n2.Insertion at head \n3.End Insertion \nEnter your choice: ";
+        cin>>choice;
+        switch(choice){
+            case 1: cout<<"\nEnter the element: ";
+                    cin>>data;
+                    insertAtTail(head2,data);
+                    break;
+            case 2: cout<<"\nEnter the element: ";
+                    cin>>data;
+                    insertAtHead(head2,data);
+                    break;
+            case 3: break;
+            default: cout<<"\nInvalid Choice\n";
+        }
+        cout<<endl;
+    }
+    print(head2);
+    node *newHead= mergeTwoSortedLinkedLists(head,head2);
+    print(newHead);
+    return 0;
 }

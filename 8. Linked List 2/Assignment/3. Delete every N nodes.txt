@@ -1,0 +1,25 @@
+Node *skipMdeleteN(Node *head, int M, int N)
+{
+	// Write your code here
+    if(head == NULL || M==0){
+        return NULL;
+    }
+    int m=M, n=N;
+    Node *temp= head;
+    while(temp && temp->next){
+        if(m!=1){
+        temp=temp->next;
+        m--;
+        }else if(n!=0){
+            Node *temp2= temp->next;
+            temp->next= temp2->next;
+            delete temp2;
+            n--;
+        }else if(temp->next){
+            m=M;
+            n=N;
+            temp= temp->next;
+        }
+    }
+    return head;
+}

@@ -1,0 +1,20 @@
+Node *kReverse(Node *head, int k)
+{
+	//Write your code here
+    if(head == NULL || k == 0 || k == 1){
+        return head;
+    }
+    int count=0;
+ 	Node *current=head, *next=NULL, *prev=NULL;
+    while(current && count<k){
+        next= current->next;
+        current->next= prev;
+        prev= current;
+        current=next;
+        ++count;
+    }
+    if(next != NULL){
+        head->next = kReverse(next,k);
+    }
+	return prev;
+}

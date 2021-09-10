@@ -1,0 +1,35 @@
+Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2){
+    if(head1 == NULL ){
+        return head2;
+    }else if(head2==NULL){
+        return head1;
+    }
+    Node *fH=NULL,*fTail=NULL;
+    if(head1->data < head2 -> data){
+        fH= head1;
+        fTail= head1;
+        head1=head1->next;
+    }else{
+        fH= head2;
+        fTail= head2;
+        head2= head2->next;
+    }
+    while(head1 && head2){
+        if(head1->data < head2->data){
+            fTail->next= head1;
+            head1= head1->next;
+            fTail=fTail->next;
+        }else{
+            fTail->next= head2;
+            head2=head2->next;
+            fTail= fTail->next;
+        }
+    }
+    
+    if(head1){
+        fTail->next= head1;
+    }else{
+        fTail->next= head2;
+    }
+    return fH;
+}

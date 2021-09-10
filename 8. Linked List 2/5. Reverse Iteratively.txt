@@ -1,0 +1,11 @@
+Node *reverseLinkedList(Node *head) {
+    // Write your code here
+    Node *current=head,*next=NULL,*prev=NULL;
+    while(current){
+        next= current->next;
+        current->next= prev;
+        prev= current;
+        current=next;
+    }
+    return prev;
+}

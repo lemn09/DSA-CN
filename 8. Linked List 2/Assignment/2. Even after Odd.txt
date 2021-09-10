@@ -1,0 +1,41 @@
+Node *evenAfterOdd(Node *head)
+{
+	//write your code here
+    if(head == NULL){
+        return head;
+    }
+    Node *oddHead=NULL, *oddTail=NULL, *evenHead=NULL, *evenTail=NULL;
+    Node *temp=head;
+    while(temp){
+        if(temp->data % 2){
+            if(oddHead == NULL){
+                oddHead= temp;
+                oddTail= temp;
+            }else{
+                oddTail->next= temp;
+                oddTail= oddTail->next;
+            }
+        }else{
+            if(evenHead == NULL){
+                evenHead= temp;
+                evenTail= temp;
+            }else{
+                evenTail->next= temp;
+                evenTail=temp;
+            }
+        }
+        temp= temp->next;
+    }
+    
+    if(oddTail){
+	    oddTail->next= evenHead;
+    }
+    if(evenTail){
+    evenTail->next= NULL;
+    }
+    if(oddHead){
+        return oddHead;
+    }else{
+        return evenHead;
+    }
+}
