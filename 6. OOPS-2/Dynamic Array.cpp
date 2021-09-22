@@ -56,7 +56,7 @@ class DynamicArray{
                 return arr[index];
             }else{
                 return -1;
-            }
+             }
         }
 
         void add(int index, int element){            //function overloading, purpose of this function is to replace the element at the given index

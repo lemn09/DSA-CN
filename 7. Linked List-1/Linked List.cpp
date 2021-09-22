@@ -101,7 +101,12 @@ node *mergeTwoSortedLinkedLists(node *head1, node *head2){
     return fH;
 }
 
+void fun(node *someNode)
+{
+   cout<<"\nExperiment: ";
+   node **var= *someNode;
 
+}
 
 int main(){
     int choice=1,data;
@@ -149,5 +154,6 @@ int main(){
     print(head2);
     node *newHead= mergeTwoSortedLinkedLists(head,head2);
     print(newHead);
+    fun(head);
     return 0;
 }
