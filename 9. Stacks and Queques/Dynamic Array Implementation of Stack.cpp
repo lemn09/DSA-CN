@@ -82,5 +82,10 @@ int main(){
     cout<<"Pop: "<<s1.pop()<<endl;
 
     cout<<"\nLength: "<<s1.length()<<endl;
+
+    cout<<endl<<"New: "<<endl;
+    arrayStack<char> s2(10);
+    s2.push('a');
+    cout<<s2.pop()<<endl;
     return 0;
 }

@@ -175,7 +175,7 @@ public:
 		cout<<"Queue       : ";
 		for(int i = 0; i <count; i++)
 		{
-			int index = (front+i) % MAX_SIZE; // Index of element while travesing circularly from front
+			int index = (front+i) % MAX_SIZE; // Index of element while traversing circularly from front
 			cout<<arr[index]<<" ";
 		}
 		cout<<"\n\n";
