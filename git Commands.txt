@@ -1,0 +1,88 @@
+1. ls					->list files in present directory
+   pwd					-> present working directory
+
+2. cd					->change directory
+    cd /				-> root Directory
+    cd (or) cd ~			-> navigate to home
+    cd..				-> 1 level up
+    cd -				-> go back
+
+4. touch file_name.txt			->New file
+   start file_name			-> open file/application,etc..
+   rm fileName.extension		->Delete File
+   mv oldFileName newFileName		->Rename File/Folder 
+   
+   vi fileName				-> Opens file in vim editor (Enter " esc + : + w + q " to save and exit
+
+5. mkdir folder_name			->New directory		// folder == directory
+   cd folderName			-> to go inside the folder
+   rm -r folderName			->Delete directory
+
+6.  cat fileName			-> read file
+    cat > fileName( ctrl+D: Exit) 	-> if file doesn't exist new one is created if it exists it's content is overwritten
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+GIT COMMANDS:
+
+1. git init							-> intialises git repository
+   
+   git status	
+   git status -s						-> short status
+   
+   touch .gitigonre  						-> *.fileExtension ignores all files with the given extension(never tracked/staged/commited) 
+ 
+  #Note: Unstaged: files/folders that are not tracked by git 
+         staged: files/foldres that are tracked by git
+	 Every time we modify tracked file 2 versions are created a). tracked(before modification) b). untracked(after modification)
+	 use add command to move files from staged to unstaged area
+
+2. git add fileName /folderName					-> adds file/folder to staging area
+   git add * (or) git add --a (or) git add -A   		-> adds all file/folder from unstaged to staged area
+   
+   git rm --cached fileName					-> moves specified file from staging area to unstaged area   
+   git rm filename						-> removes existing file and stages the change
+   git mv oldName newFileName					-> renames existing file ans stages the change
+
+   git commit -m "Message"					-> commits all staged files/ directories
+   git commit -a -m "Message"					-> commits tracked file which is modified, directly 
+
+3. git log
+   git lop -p -(const int no. n)				-> shows last n logs
+
+4. git reset hash_id						-> go back to the mentioned hash id
+   git restore							-> last
+
+5. git stash(based on stack LIFO)				-> moves uncommited staged area to temporary shelves
+   
+  #Note 2: By default git ignores untracked files when doing stash. 
+           If those files need to be added to stash you can use -u options 
+           which tells git to include untracked files. Ignored files can be added as well if -a option is specified.
+           -a will include both untracked and ignored files.
+   
+  git stash pop			
+  git stash clear
+
+6. git remote add origin url					-> links the given url github link to the local folder
+   git remote -v						-> lists the url's connected with local directory
+ 
+
+7. git branch branchName					-> creates a new branch with given name
+
+   #Note 3: Personal branch linked with own id is called origin
+            Non personal branch is called upstream
+ 	    We cannot push changes into upStream so we create pull requests
+	    We create branch to create a new pull requests
+      	    We cannot have multiple pull requests for one branch and vice versa
+
+   git branch branchName					-> switch to the specified existing branch
+   
+   git merge branchName						-> merges specified branch with master
+   
+   git checkout -b branchName					-> create and switch to the specified branch
+
+8. Fork-> github feature
+   Pull request -> github feature
+
+9. git clone url						-> clones the specified url
+   
