@@ -1,0 +1,25 @@
+#include<vector>
+
+TreeNode<int>* removeLeafNodes(TreeNode<int>* root) {
+    // Write your code here
+    if(root==NULL || root->numChildren()==0){
+        return NULL;
+    }
+    vector<int> arr;
+    for(int i=0; i<root->numChildren(); i++){
+        TreeNode<int>* child = root->getChild(i);
+        if(child->numChildren()==0){
+            arr.push_back(i);
+        }
+    }
+    for(int j=arr.size()-1; j>=0; j--){
+        root->removeChild(arr[j]);
+    }
+    for(int i=0; i<root->numChildren(); i++){
+        TreeNode<int>* childRoot = removeLeafNodes(root->getChild(i));
+        if(childRoot==NULL){
+            root->removeChild(i);
+        }
+    }
+    return root;
+}

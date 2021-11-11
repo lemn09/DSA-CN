@@ -1,0 +1,39 @@
+vector<int>* helper(BinaryTreeNode<int>* root, vector<int>* arr){
+    if(root == NULL){
+        return arr;
+    }
+    if(root->right == NULL && root->left == NULL){
+		arr->push_back(root->data);
+        return arr;
+    }
+    
+    vector<int>* arr1= new vector<int>;
+    vector<int>* arr2= new vector<int>;
+
+    
+    if(root->left)
+    arr1= helper(root->left, arr1);
+    
+    if(root->right)
+    arr2= helper(root->right, arr2);
+    
+    arr1->push_back(root->data);
+    arr2->push_back(root->data);
+    
+    if(arr1->size() > arr2->size()){
+		return arr1;
+    }else{
+        return arr2;
+    }
+}
+
+
+vector<int>* longestPath(BinaryTreeNode<int>* root) {
+	// Write your code here
+	if(root == NULL){
+        return NULL;
+    }
+    
+	vector<int>* arr1= new vector<int>;
+    return helper(root, arr1);
+}
