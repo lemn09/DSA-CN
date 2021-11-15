@@ -13,3 +13,17 @@ void printSubsetsOfArray(int input[], int size) {
     delete []out;
     return;
 }
+
+//more concise approach
+void printSubsetsOfArray(int input[], int size, string output="") {
+	// Write your code here
+    if(size == 0){
+        cout<<output<<endl;
+        return;
+    }
+
+    printSubsetsOfArray(input+1, size-1, output);
+    output= output + to_string(input[0]) + ' ';
+    printSubsetsOfArray(input+1, size-1, output);
+
+}

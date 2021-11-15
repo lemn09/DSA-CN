@@ -22,3 +22,18 @@ void printSubsetSumToK(int input[], int size, int k) {
     int *out= new int[SIZE];
 	helper(input,size,0,out,0,k);
 }
+
+//better approach
+void printSubsetSumToK(int input[], int size, int k, string output= "") {
+    // Write your code here
+    if(size == 0){
+        if(k == 0){
+            cout<<output<<endl;
+        }
+        return;
+    }
+
+    printSubsetSumToK(input+1, size-1, k, output);
+    output= output + to_string(input[0]) + ' ';
+    printSubsetSumToK(input+1, size-1, k-input[0], output);
+}
