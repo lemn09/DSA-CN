@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-#define SIZE 5
+//#define SIZE 5
 
 class DynamicArray{
     private:
@@ -10,10 +10,10 @@ class DynamicArray{
         int capacity;
 
     public:
-        DynamicArray(){                      // Constructor
-            arr= new int[SIZE];
+        DynamicArray(int size){                      // Constructor
+            arr= new int[size]();
             nextIndex=0;
-            capacity= SIZE;
+            capacity= size;
         }
 
         DynamicArray(DynamicArray const &a){            //Copy Constructor
@@ -51,7 +51,7 @@ class DynamicArray{
             capacity*=2;
         }
 
-        int get(int index) const{
+        int get(int index) const{                           // return value at given index
             if(index < nextIndex && index>0){
                 return arr[index];
             }else{
@@ -80,21 +80,6 @@ class DynamicArray{
 
 
 int main(){
-    DynamicArray d1;
-    d1.add(10);
-    d1.add(20);
-    d1.add(30);
-    d1.add(40);
-    d1.add(50);
-    d1.print();
-
-    cout<<endl;
-    DynamicArray d2(d1);
-    d1.add(2,33);
-    d2.print();
-
-    cout<<endl;
-    DynamicArray d3;
-    d3=d1;
-    d3.print();
+    
+    return 0;
 }

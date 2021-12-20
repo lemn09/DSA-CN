@@ -92,6 +92,7 @@ class BST {
                 delete node;
                 return temp;
             }else{
+            // if the node to be deleted has both left and right child then replace value of the given node with either the min. value node from rightChild or max. value node from leftChild                                                 
                 BinaryTreeNode<int> *minNode= node->right;
                 while(minNode->left != NULL){
                     minNode= minNode->left;
