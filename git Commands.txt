@@ -12,14 +12,13 @@
    rm fileName.extension		->Delete File
    mv oldFileName newFileName		->Rename File/Folder 
    
-   vi fileName				-> Opens file in vim editor (Enter " esc + : + w + q " to save and exit
-
+   vi fileName				-> Opens file in vim editor (Enter 1. esc 2. :w (to save) 3. :q(to exit))
 5. mkdir folder_name			->New directory		// folder == directory
    cd folderName			-> to go inside the folder
    rm -r folderName			->Delete directory
 
 6.  cat fileName			-> read file
-    cat > fileName( ctrl+D: Exit) 	-> if file doesn't exist new one is created if it exists it's content is overwritten
+    cat > fileName( ctrl+D: Exit) 	-> if file doesn't exist new one is created if it exists it's content is overwritten( ctrl + d: to exit)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
