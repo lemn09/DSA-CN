@@ -1,21 +1,29 @@
+/*
+    Time complexity: O(N) Space complexity: O(N) where N is the length of the   input expression
+*/
 #include<stack>
-
 bool checkRedundantBrackets(string expression) {
-	stack<char> s;
-    for(int i=0; i<expression.length() ; i++){
-        if(expression[i] != ')'){
-            s.push(expression[i]);
-        } else {
-            int count=0;
-            while(s.top() != '('){
-                count++;
-                s.pop();
+    stack<char> stk;
+    string operators = "+-*/";
+    for (int i = 0; i < expression.length(); ++i) {
+        if (expression[i] == '(' || operators.find(expression[i]) != string::npos) {
+            stk.push(expression[i]);
+        } else if (expression[i] == ')') {
+            // to check for if anything relevant is present between brackets
+            bool flag = false;
+
+            while (!stk.empty() && stk.top() != '(') {
+                flag = true;
+                stk.pop();
             }
-            if(count<=1){
+            if (!flag) {
                 return true;
             }
-            s.pop();
+            if (!stk.empty()) {
+                stk.pop();
+            }
         }
     }
     return false;
 }
+

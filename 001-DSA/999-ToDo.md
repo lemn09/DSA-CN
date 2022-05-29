@@ -33,4 +33,6 @@
 
 ## Stacks & Queues
 [Stacks-&-Queues](./009.%20Stacks%20and%20Queues/)
+1. [ ] Stack Array implementation(circular)
+1. [ ] Reverse Stack(4 methods)
 
