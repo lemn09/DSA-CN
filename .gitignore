@@ -1,2 +1,4 @@
-*.o
-*.exe
+*/.o
+*/.exe
+**/input.txt*
+**/output.txt*

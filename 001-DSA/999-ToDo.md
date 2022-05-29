@@ -28,5 +28,9 @@
 1. [ ] Merge Sort List
 1. [ ] Even after odd(Rearrange List)
 1. [ ] Swap Nodes
+1. [ ] k Reverse
 1. [ ] Bubble Sort
+
+## Stacks & Queues
+[Stacks-&-Queues](./009.%20Stacks%20and%20Queues/)
 
