@@ -30,9 +30,13 @@
 1. [ ] Swap Nodes
 1. [ ] k Reverse
 1. [ ] Bubble Sort
+1. [X] Add 2 numbers(linked list leetcode)
 
 ## Stacks & Queues
 [Stacks-&-Queues](./009.%20Stacks%20and%20Queues/)
 1. [ ] Stack Array implementation(circular)
 1. [ ] Reverse Stack(4 methods)
-
+1. [ ] Redundant Brackets
+1. [ ] Stock Span
+1. [ ] Min Bracket Reverse
+1. [ ] [spoj](https://www.spoj.com/problems/ADAQUEUE/) ADA QUEUE(notes ques.)

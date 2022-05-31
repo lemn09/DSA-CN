@@ -1,0 +1,105 @@
+// solved using cpp14 clang, compilation error with g++ 4.3.1
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int            long long int
+#define F              first
+#define S              second
+#define pb             push_back
+
+inline int power(int a, int b)
+{
+    int x = 1;
+    while (b)
+    {
+        if (b & 1) x *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return x;
+}
+
+const int N = 200005;
+
+deque<int> q;
+void reverseDeque() {
+    stack<int> st;
+    while (!q.empty()) {
+        st.push(q.front());
+        q.pop_front();
+    }
+    while (!st.empty()) {
+        q.push_back(st.top());
+        st.pop();
+    }
+}
+
+void print() {
+    cout << "queue: ";
+    for (auto i : q) {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+void solve(bool &reverse) {
+    string s;
+    cin >> s;
+    if (s[0] == 'b') {
+        // cout << "back: ";
+        if (q.empty()) {
+            cout << "No job for Ada?" << endl;
+        } else if (reverse) {
+            cout << q.front() << endl;
+            q.pop_front();
+        } else {
+            cout << q.back() << endl;
+            q.pop_back();
+        }
+    } else if (s[0] == 'f') {
+        // cout << "front: ";
+        if (q.empty()) {
+            cout << "No job for Ada?" << endl;
+        } else if (reverse) {
+            cout << q.back() << endl;
+            q.pop_back();
+        } else {
+            cout << q.front() << endl;
+            q.pop_front();
+        }
+    } else if (s == "reverse") {
+        reverse = !reverse;
+    } else if (s == "push_back") {
+        int n;
+        cin >> n;
+        if (reverse) {
+            q.push_front(n);
+        } else {
+            q.push_back(n);
+        }
+    } else if (s == "toFront") {
+        int n;
+        cin >> n;
+        if (reverse) {
+            q.push_back(n);
+        } else {
+            q.push_front(n);
+        }
+    }
+    // print();
+}
+
+int32_t main()
+{
+
+
+    int t = 1;
+    cin >> t;
+    // instead of reversing the variable we mark the flag true/false, and interpret query in reverse
+    bool reverse = false;
+    while (t--) solve(reverse);
+
+
+    return 0;
+}
