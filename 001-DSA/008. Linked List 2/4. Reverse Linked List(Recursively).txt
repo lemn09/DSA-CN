@@ -1,0 +1,9 @@
+Node* reverse(Node *head, Node *ptr){
+    if(!ptr->next){
+        return ptr;
+    }
+    head= reverse(head, ptr->next);
+    ptr->next->next= ptr;
+    ptr->next=NULL;
+    return head;
+}
