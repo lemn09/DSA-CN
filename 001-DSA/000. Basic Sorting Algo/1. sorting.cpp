@@ -4,20 +4,27 @@ using namespace std;
 
 #define SIZE 10
 
-// Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order, at end of each iteration the largest element goes to the end
+// simplest sorting algo, compare adjacent elements, 
+// after one full pass of array heaviest(largest) element is at end
+// T(n): O(n^2)
+// best case: O(n)(if flag variable is used)
+// inplace, adaptive(if flag var is used), stable
 void bubbleSort(int *arr, int arrLen)
 {
     for (int i = 0; i < arrLen - 1; i++)
     {
+        bool flag= true;
         for (int j = 0; j < arrLen - 1 - i; j++)
         {
             if (arr[j] > arr[j + 1])
             {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+                // swap stl
+                swap(arr[j], arr[j+1]);
+                flag= false;
             }
         }
+        // if no swaps occured => sorted array
+        if(flag)    return;
     }
 }
 
@@ -41,7 +48,9 @@ void selectionSort(int *arr, int arrLen)
     }
 }
 
-// Insertion sort is a sorting algorithm that places an unsorted element at its suitable place in each iteration.
+// in insertion sort we compare element at ith index with elements from i-1 to 0, and place the ith index element at appropriate position
+// T(n): O(n^2), Worst case: reverse sorted array, Best case: sorted array(no swaps only comparisons)
+// in-place sorting algo, stable algo
 void insertionSort(int *arr, int arrLen)
 {
     for (int i = 1; i < arrLen; i++)
