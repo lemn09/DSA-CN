@@ -19,7 +19,7 @@
 1. [X] Return Duplicate element
 1. [X] Intersection of 2 array
 1. [ ] Pair Sum (follow up ques : does the input array contain duplicate pairs, i.e., are the pairs unique or not)
-1. [ ] Triplet Sum
+1. [ ] **Triplet Sum**
 
 > Best approach for both pair sum and triplet sum is sort + two pointer
 
@@ -35,10 +35,10 @@
 [Linked-List-2](/008.%20Linked%20List%202/)
 
 1. [X] Merge 2 sorted list
-1. [ ] Even after odd(Rearrange List)
-1. [ ] Swap Nodes
-1. **[ ] k Reverse**
-1. **[ ] Bubble Sort**
+1. [X] Even after odd(Rearrange List)
+1. [ ] Swap Nodes(optimize)
+1. [ ] **k Reverse**
+1. [ ] **Bubble Sort**
 1. [X] Add 2 numbers(linked list leetcode)
 
 ## Stacks & Queues
